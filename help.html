@@ -1,8 +1,8 @@
 
 <body>
     <script>
-        const url = 'https://raw.githubusercontent.com/eh15/tester/main/sample.txt'
-        fetch(url).then(text => text.text());
+        const url = 'https://raw.githubusercontent.com/eh15/tester/main/sample.txt';
+        const text = fetch(url);
         function printResultToHTML() { 
             document.getElementById("result").innerHTML = text; 
         } 
