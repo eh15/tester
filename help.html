@@ -1,53 +1,25 @@
-<head>
-    <title>Basic Tetris HTML Game</title>
-    <meta charset="UTF-8">
-    <style>
-    html, body {
-      height: 100%;
-      margin: 0;
-    }
-  
-    body {
-      background: black;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-  
-    canvas {
-      border: 1px solid white;
-    }
-    </style>
-  </head>
+
 <body>
-<p>
-A 18
-  </p>
-  
-  <input type="text" id="stdin"/>
-  <p id="credits"></p>
-  <form id="form">
-    <button id="run">Run</button>
-  </form>
-  <code id="output"></code>
-  
-  <script>
+    <script>
+        const url = 'https://raw.githubusercontent.com/eh15/tester/main/sample.txt'
+        fetch(url).then(text => text.text());
+        function printResultToHTML() { 
+            document.getElementById("result").innerHTML = text; 
+        } 
+        function getRandomInt(min, max) {
+            min = Math.ceil(min);
+            max = Math.floor(max);
 
-var run = document.getElementById("run");
-
-run.addEventListener("click", function (e) {
-    output.innerHTML = "Loading...";
-    class JavaInUse {
-  constructor() {
-    this.x = 5;
-  }
-}
-JavaInUse.main = (args) => {
-  let myObj = new Main();
-  System.out.println(myObj.x);
-};
-});
-
-
-  </script>
+            return Math.floor(Math.random() * (max - min + 1)) + min;
+        }
+    </script>
+    
+    <p>
+        Click to Randomly Generate Constitutions
+    </p>
+    
+    <button onclick="printResultToHTML()">Generate</button> <!-- Call to print result of functions in script-->
+    <p> 
+        <div id = "result"> </div> <!-- Returns result here -->
+    </p> 
 </body>
