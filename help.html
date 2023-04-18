@@ -15,16 +15,27 @@
         }
     })();
 
-function wordFreq(string) {    
-var words = string.replace(/[.]/g, '').split(/\s/);   
-var freqMap = {};   
-words.forEach(function(w) {  
-if (!freqMap[w]) {   
-freqMap[w] = 0;       
-}     
-freqMap[w] += 1;  
-});    
-return freqMap;
+var wordFrequency = function(string) {    
+	var words = string.replace(/[.]/g, '').split(/\s/);   
+	var freqMap = {};   
+	words.forEach(function(w) {  
+	if (!freqMap[w]) {   
+		freqMap[w] = 0;       
+	}     
+	freqMap[w] += 1;  
+	});
+	return freqMap;
+}
+
+
+
+// Find the frequency of all words
+var result = wordFrequency( 'is dead, long live the king the king');
+
+for ( var word in result ) {
+    if (result[word] > 0) {
+    console.log( word + ': ' + result[word] );
+    }
 }
 
         const url = "https://raw.githubusercontent.com/eh15/tester/main/sample.txt";
