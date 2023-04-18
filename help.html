@@ -1,6 +1,41 @@
 
 <body>
     <script>
+        (function () {
+        var old = console.log;
+        var logger = document.getElementById('result');
+        console.log = function () {
+          for (var i = 0; i < arguments.length; i++) {
+            if (typeof arguments[i] == 'object') {
+                logger.innerHTML += (JSON && JSON.stringify ? JSON.stringify(arguments[i], undefined, 2) : arguments[i]) + '<br />';
+            } else {
+                logger.innerHTML += arguments[i] + '<br />';
+            }
+          }
+        }
+    })();
+
+function wordFreq(string) {    
+var words = string.replace(/[.]/g, '').split(/\s/);   
+var freqMap = {};   
+words.forEach(function(w) {  
+if (!freqMap[w]) {   
+freqMap[w] = 0;       
+}     
+freqMap[w] += 1;  
+});    
+return freqMap;
+}
+
+getText("sample.txt");
+
+async function getText(file) {
+  let x = await fetch(file);
+  let y = await x.text();
+  freqMap = wordFreq(y);
+   console.log(freqMap);
+console.log(freqMap.get("This")); 
+}
         const url = 'https://raw.githubusercontent.com/eh15/tester/main/sample.txt';
         const text = fetch(url);
         function printResultToHTML() { 
@@ -15,7 +50,7 @@
     </script>
     
     <p>
-        Click to Randomly Generate Constitutions
+        Click to Randomly Generate
     </p>
     
     <button onclick="printResultToHTML()">Generate</button> <!-- Call to print result of functions in script-->
