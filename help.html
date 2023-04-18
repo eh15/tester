@@ -27,7 +27,7 @@ freqMap[w] += 1;
 return freqMap;
 }
 
-getText("sample.txt");
+        const url = "https://raw.githubusercontent.com/eh15/tester/main/sample.txt";
 
 async function getText(file) {
   let x = await fetch(file);
@@ -36,8 +36,7 @@ async function getText(file) {
    console.log(freqMap);
 console.log(freqMap.get("This")); 
 }
-        const url = 'https://raw.githubusercontent.com/eh15/tester/main/sample.txt';
-        const text = fetch(url);
+
         function printResultToHTML() { 
             document.getElementById("result").innerHTML = text; 
         } 
